@@ -49,7 +49,7 @@ export const login = body => dispatch => {
 
       dispatch(okLogin(res));
     })
-    .catch(err => dispatch(failLogin(String(err))));
+    .catch(message => dispatch(failLogin(message)));
 };
 
 export const DO_LOGOUT = '@@session/DO_LOGOUT';
