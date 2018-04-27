@@ -26,13 +26,15 @@ class Dashboard extends React.Component {
   render() {
     return (
       <Navigation history={this.props.history}>
-        <h1>Dashboard</h1>
-        <pre>{JSON.stringify(this.props.user, null, 2)}</pre>
-        {this.props.isFetching ? (
-          <LoaderExampleLoader />
-        ) : (
-          <pre>{JSON.stringify(this.props.reports, null, 2)}</pre>
-        )}
+        <div>
+          <h1>Dashboard</h1>
+          <pre>{JSON.stringify(this.props.user, null, 2)}</pre>
+          {this.props.isFetching ? (
+            <LoaderExampleLoader />
+          ) : (
+            <pre>{JSON.stringify(this.props.reports, null, 2)}</pre>
+          )}
+        </div>
       </Navigation>
     );
   }
@@ -43,7 +45,6 @@ Dashboard.propTypes = {
     id: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     token: PropTypes.string.isRequired,
-    isAuthenticated: PropTypes.bool.isRequired,
   }).isRequired,
   fetchReports: PropTypes.func.isRequired,
   reports: PropTypes.arrayOf(
@@ -57,7 +58,6 @@ Dashboard.propTypes = {
     }),
   ).isRequired,
   isFetching: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
