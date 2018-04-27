@@ -10,7 +10,9 @@ const initialState = {
     token: undefined,
   },
   isFetching: false,
-  error: {},
+  error: {
+    message: '',
+  },
 };
 
 const doCreation = () => ({

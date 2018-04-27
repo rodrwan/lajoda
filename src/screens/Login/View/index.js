@@ -45,7 +45,7 @@ class Login extends React.Component {
   render() {
     return (
       <Navigation history={this.props.history}>
-        <Container>
+        <Container text>
           <Header as="h2">Login</Header>
           <LoginForm
             onSubmit={this.submit}
