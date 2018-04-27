@@ -4,6 +4,7 @@ import { Container, Header, Message, Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import { login } from '../../../reducers/session';
+import Navigation from '../../../components/Navigation';
 
 class Login extends React.Component {
   constructor(props) {
@@ -42,35 +43,37 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Header as="h2">Login</Header>
-        <Form>
-          {this.state.error.message ? <ErrorMessage message={this.state.error.message} /> : null}
-          {this.props.error.message ? <ErrorMessage message={this.props.error.message} /> : null}
-          <Form.Field>
-            <label htmlFor="email">Email</label>
-            <input
-              placeholder="Email"
-              name="email"
-              type="email"
-              value={this.state.email}
-              onChange={this.onChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="email">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
-          </Form.Field>
-          <Button type="submit" disabled={this.props.isFetching} onClick={this.submit}>
-            Submit
-          </Button>
-        </Form>
-      </Container>
+      <Navigation history={this.props.history}>
+        <Container>
+          <Header as="h2">Login</Header>
+          <Form>
+            {this.state.error.message ? <ErrorMessage message={this.state.error.message} /> : null}
+            {this.props.error.message ? <ErrorMessage message={this.props.error.message} /> : null}
+            <Form.Field>
+              <label htmlFor="email">Email</label>
+              <input
+                placeholder="Email"
+                name="email"
+                type="email"
+                value={this.state.email}
+                onChange={this.onChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="email">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.onChange}
+              />
+            </Form.Field>
+            <Button type="submit" disabled={this.props.isFetching} onClick={this.submit}>
+              Submit
+            </Button>
+          </Form>
+        </Container>
+      </Navigation>
     );
   }
 }

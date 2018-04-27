@@ -85,7 +85,7 @@ export default (state = initialState, action) => {
         isFetching: false,
         isAuthenticated: true,
         user: {
-          ...this.state.user,
+          ...state.user,
           ...action.payload.data,
           logged: true,
         },
