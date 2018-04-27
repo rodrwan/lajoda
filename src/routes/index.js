@@ -7,12 +7,14 @@ import LoginView from '../screens/Login/View';
 import SignupView from '../screens/Signup/View';
 import DashboardView from '../screens/Dashboard/View';
 
+import UserRoute from '../routes/AuthRoute';
+
 const routes = ({ location }) => (
   <div>
     <Route location={location} exact path="/" component={HomeView} />
     <Route location={location} exact path="/login" component={LoginView} />
     <Route location={location} exact path="/signup" component={SignupView} />
-    <Route location={location} exact path="/dashboard" component={DashboardView} />
+    <UserRoute location={location} exact path="/dashboard" component={DashboardView} />
   </div>
 );
 
