@@ -28,6 +28,13 @@ const failCreation = payload => ({
 });
 
 // thunks (async action creator)
+function rejectIfError(res) {
+  if (res.error) {
+    return Promise.reject(res.error.message);
+  }
+
+  return Promise.resolve(res);
+}
 
 export const createUser = body => dispatch => {
   dispatch(doCreation());
@@ -42,19 +49,9 @@ export const createUser = body => dispatch => {
   })
     .then(res => res.json())
     .then(res => rejectIfError(res))
-    .then(res => {
-      dispatch(successCreation(res));
-    })
+    .then(res => dispatch(successCreation(res)))
     .catch(message => dispatch(failCreation(message)));
 };
-
-function rejectIfError(res) {
-  if (!!res.ok) {
-    return Promise.reject(res.error.message);
-  }
-
-  return Promise.resolve(res);
-}
 
 export default (state = initialState, action) => {
   switch (action.type) {
