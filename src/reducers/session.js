@@ -47,7 +47,7 @@ export const login = body => dispatch => {
         return Promise.reject(res.error.message);
       }
 
-      dispatch(okLogin(res));
+      return dispatch(okLogin(res));
     })
     .catch(message => dispatch(failLogin(message)));
 };

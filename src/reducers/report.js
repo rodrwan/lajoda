@@ -25,10 +25,10 @@ export const fetchReports = () => dispatch => {
       if (res.error) {
         return Promise.reject(res.error.message);
       }
-      console.log(res);
-      dispatch(setReports(res));
+
+      return dispatch(setReports(res));
     })
-    .catch(err => dispatch(failReports(String(err))));
+    .catch(err => dispatch(failReports(err)));
 };
 
 const initialState = {
@@ -45,7 +45,6 @@ export default (state = initialState, action) => {
         isFetching: true,
       };
     case RECEIVE_REPORTS:
-      console.log([...action.payload.data.reports]);
       return {
         ...state,
         reports: [...action.payload.data.reports],
