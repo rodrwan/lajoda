@@ -23,8 +23,6 @@ class Dashboard extends React.Component {
 
   handleToggle = () => this.setState({ sidebarOpened: !this.state.sidebarOpened });
 
-  logout = () => this.props.logout().then(() => this.props.history.push('/login'));
-
   render() {
     return (
       <Navigation history={this.props.history}>

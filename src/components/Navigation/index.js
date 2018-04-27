@@ -17,7 +17,11 @@ class Navigation extends React.Component {
 
   handleToggle = () => this.setState({ sidebarOpened: !this.state.sidebarOpened });
 
-  logout = () => this.props.logout().then(() => this.props.history.push('/login'));
+  logout = e => {
+    e.preventDefault();
+    this.props.logout();
+    this.props.history.push('/login');
+  };
 
   render() {
     const { sidebarOpened } = this.state;
@@ -30,7 +34,7 @@ class Navigation extends React.Component {
               Home
             </Menu.Item>
             {this.props.isAuthenticated ? (
-              <Menu.Item onClick={this.logout()}>Logout</Menu.Item>
+              <Menu.Item onClick={this.logout}>Logout</Menu.Item>
             ) : (
               <div>
                 <Menu.Item as={Link} to="/login">
