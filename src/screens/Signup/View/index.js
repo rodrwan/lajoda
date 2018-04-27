@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Header, Message, Form, Button } from 'semantic-ui-react';
@@ -113,4 +112,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);
-
