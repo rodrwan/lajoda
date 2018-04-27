@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "add": "^2.0.6",
-    "babel-eslint": "^8.2.3",
     "gravatar-url": "^2.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
@@ -25,8 +24,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "eslint": {
+    "packageManager": "yarn"
+  },
   "devDependencies": {
-    "babel-eslint": "8",
     "eslint": "4.x",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.9.0",
