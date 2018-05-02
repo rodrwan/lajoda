@@ -22,7 +22,6 @@ class Dashboard extends React.Component {
       <Navigation history={this.props.history}>
         <div>
           <h1>Dashboard</h1>
-          {/* <pre>{JSON.stringify(this.props.user, null, 2)}</pre> */}
           {isFetching ? (
             <LoaderExampleLoader />
           ) : (
@@ -50,10 +49,10 @@ Dashboard.propTypes = {
   fetchReports: PropTypes.func.isRequired,
   reports: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      pillId: PropTypes.string.isRequired,
+      pill_id: PropTypes.number.isRequired,
       reporter: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
     }),
