@@ -18,7 +18,13 @@ const Login = ({ onSubmit, credentials, onChange, isFetching, apiError }) => (
     </Form.Field>
     <Form.Field>
       <label htmlFor="email">Password</label>
-      <input type="password" name="password" value={credentials.password} onChange={onChange} />
+      <input
+        placeholder="password"
+        type="password"
+        name="password"
+        value={credentials.password}
+        onChange={onChange}
+      />
     </Form.Field>
     <Button type="submit" disabled={isFetching} onClick={onSubmit}>
       Submit

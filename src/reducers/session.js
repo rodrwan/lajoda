@@ -30,6 +30,11 @@ const failLogin = payload => ({
   payload,
 });
 
+export const refreshSession = payload => ({
+  type: OK_LOGIN,
+  payload,
+});
+
 // asyn action creators (thunks)
 export const login = body => dispatch => {
   dispatch(doLogin());
@@ -117,6 +122,7 @@ export default (state = initialState, action) => {
           id: '',
           logged: false,
         },
+        error: {},
       };
     default:
       return state;

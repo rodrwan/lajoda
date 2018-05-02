@@ -14,8 +14,8 @@ class Login extends React.Component {
 
     this.state = {
       credentials: {
-        email: '',
-        password: '',
+        email: 'lajoda@test.com',
+        password: 'lala',
       },
       error: {
         message: '',
@@ -38,7 +38,7 @@ class Login extends React.Component {
         credentials: this.state.credentials,
       })
       .then(res => {
-        if (typeof res === 'undefined') {
+        if (typeof res !== 'undefined') {
           this.props.history.push('/dashboard');
         }
       });
