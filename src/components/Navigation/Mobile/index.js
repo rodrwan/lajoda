@@ -32,7 +32,10 @@ class MobileNavigation extends React.Component {
                 Home
               </Menu.Item>
               {this.props.isAuthenticated ? (
+                <div>
+                <Menu.Item as={Link} to="/me">Profile</Menu.Item>
                 <Menu.Item onClick={this.logout}>Logout</Menu.Item>
+                </div>
               ) : (
                 <div>
                   <Menu.Item as={Link} to="/login">
