@@ -30,13 +30,10 @@ const failLogin = payload => ({
   payload,
 });
 
-export const refreshSession = payload => { 
-
-  return {
-    type: OK_LOGIN,
-    payload,
-  }
-};
+export const refreshSession = payload => ({
+  type: OK_LOGIN,
+  payload,
+});
 
 // asyn action creators (thunks)
 export const login = body => dispatch => {

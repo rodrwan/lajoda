@@ -7,8 +7,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { refreshSession } from 'reducers/session';
 import rootReducer from 'reducers';
-import { composeWithDevTools } from "redux-devtools-extension";
-
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -19,16 +18,11 @@ import registerServiceWorker from './registerServiceWorker';
 const middlewares = [thunk, logger];
 const enhancers = applyMiddleware(...middlewares);
 /* eslint-disable no-underscore-dangle */
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(enhancers)
-);
+const store = createStore(rootReducer, composeWithDevTools(enhancers));
 /* eslint-enable */
 
 if (localStorage.user) {
   const user = JSON.parse(localStorage.user);
-  console.log("9999999")
-  console.log(user)
 
   store.dispatch(
     refreshSession({
