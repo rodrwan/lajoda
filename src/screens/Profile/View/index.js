@@ -10,13 +10,13 @@ import Navigation from 'components/Navigation';
 const Profile = ({ user, logout, ...props }) => (
   <div>
     <Navigation history={props.history}>
-      <Card centered fluid>
-        <Image src="http://icons.iconarchive.com/icons/flat-icons.com/square/128/pill-icon.png" circular/>
+      <Card fluid>
+        <Image src="http://icons.iconarchive.com/icons/flat-icons.com/square/128/pill-icon.png" size='tiny' centered/>
         <Card.Content>
           <Card.Header>{user.email}</Card.Header>
         </Card.Content>
-        <Card.Content extra centered>
-        <Button onClick={e => {e.preventDefault(); logout()}} circular icon='sign out' centered />
+        <Card.Content textAlign="center" extra>
+        <Button onClick={e => {e.preventDefault(); logout()}} circular icon='sign out' />
         </Card.Content>
       </Card>
     </Navigation>
