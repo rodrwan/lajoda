@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
           ) : (
             <Card.Group centered>
               {reports.map(report => (
-                <Card key={report.id} href={`/reports/${report.id}`}>
+                <Card fluid key={report.id} href={`/reports/${report.id}`}>
                   <Image size="small" centered src="https://i.redd.it/v2f9jbro0mly.jpg" />
                   <Card.Content>
                     <Card.Header>{report.title}</Card.Header>
