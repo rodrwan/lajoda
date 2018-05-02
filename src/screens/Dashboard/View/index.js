@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Loader, Card, Image } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import { fetchReports } from 'reducers/report';
 import { logout } from 'reducers/session';
 import Navigation from 'components/Navigation';
@@ -16,16 +15,8 @@ class Dashboard extends React.Component {
     this.props.fetchReports();
   }
 
-  handlePusherClick = () => {
-    const { sidebarOpened } = this.state;
-
-    if (sidebarOpened) this.setState({ sidebarOpened: false });
-  };
-
-  handleToggle = () => this.setState({ sidebarOpened: !this.state.sidebarOpened });
-
   render() {
-    const { user, isFetching, reports } = this.props;
+    const { isFetching, reports } = this.props;
 
     return (
       <Navigation history={this.props.history}>
@@ -56,11 +47,6 @@ class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    token: PropTypes.string.isRequired,
-  }).isRequired,
   fetchReports: PropTypes.func.isRequired,
   reports: PropTypes.arrayOf(
     PropTypes.shape({
@@ -79,7 +65,6 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  user: state.session.user,
   reports: state.reports.reports,
   isFetching: state.reports.isFetching,
 });
