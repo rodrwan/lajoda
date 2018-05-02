@@ -19,7 +19,7 @@
     "yarn": "^1.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_PATH=src/ react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
@@ -38,5 +38,5 @@
     "prettier": "^1.12.1",
     "redux-devtools-extension": "^2.13.2"
   },
-  "proxy": "https://d5d03e07.ngrok.io"
+  "proxy": "http://52bc4751.ngrok.io"
 }

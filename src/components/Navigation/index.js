@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import DesktopNavigation from './Desktop';
-import MobileNavigation from './Mobile';
-import { logout } from '../../reducers/session';
+import DesktopNavigation from 'components/Navigation/Desktop';
+import MobileNavigation from 'components/Navigation/Mobile';
+import { logout } from 'reducers/session';
 
 const mapStateToProps = state => ({
   user: state.session.user,

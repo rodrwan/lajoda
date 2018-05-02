@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Container, Header, Message, Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
-import { createUser } from '../../../reducers/user';
-import Navigation from '../../../components/Navigation';
+import { createUser } from 'reducers/user';
+import Navigation from 'components/Navigation';
 
 class Signup extends React.Component {
   constructor(props) {

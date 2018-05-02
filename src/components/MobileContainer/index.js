@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Responsive, Sidebar, Menu, Segment, Container, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import HomepageHeading from '../HomepageHeading';
+import HomepageHeading from 'components/HomepageHeading';
 
 class MobileContainer extends Component {
   state = {};

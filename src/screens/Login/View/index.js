@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Container, Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
-import { login } from '../../../reducers/session';
-import Navigation from '../../../components/Navigation';
-import LoginForm from '../../../components/Form/Login';
+import { login } from 'reducers/session';
+import Navigation from 'components/Navigation';
+import LoginForm from 'components/Form/Login';
+import Error from 'components/Error';
 
 class Login extends React.Component {
   constructor(props) {
@@ -43,17 +44,19 @@ class Login extends React.Component {
       });
 
   render() {
+    const { error } = this.state;
+
     return (
       <Navigation history={this.props.history}>
         <Container text>
           <Header as="h2">Login</Header>
+          {error.message ? <Error message={error.message} /> : null}
           <LoginForm
             onSubmit={this.submit}
             credentials={this.state.credentials} // porcion que quiero modificar
             onChange={this.onChange} // quien modifica esa porcion
             isFetching={this.props.isFetching}
             apiError={this.props.error}
-            stateError={this.state.error}
           />
         </Container>
       </Navigation>

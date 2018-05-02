@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Loader } from 'semantic-ui-react';
-import { fetchReports } from '../../../reducers/report';
-import { logout } from '../../../reducers/session';
-import Navigation from '../../../components/Navigation';
+import { fetchReports } from 'reducers/report';
+import { logout } from 'reducers/session';
+import Navigation from 'components/Navigation';
 
 const LoaderExampleLoader = () => <Loader active inline="centered" />;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Container, Divider, Grid, Header, Image, List, Segment } from 'semantic-ui-react';
-import DesktopContainer from '../../../components/DesktopContainer';
-import MobileContainer from '../../../components/MobileContainer';
+import DesktopContainer from 'components/DesktopContainer';
+import MobileContainer from 'components/MobileContainer';
 
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.

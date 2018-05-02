@@ -24,5 +24,16 @@
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [],
+        "moduleDirectory": [
+          "src/",
+          "node_modules"
+        ]
+      }
+    }
   }
 }

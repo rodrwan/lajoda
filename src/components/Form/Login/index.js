@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Message } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
+import Error from 'components/Error';
 
-const Login = ({ onSubmit, credentials, onChange, isFetching, stateError, apiError }) => (
+const Login = ({ onSubmit, credentials, onChange, isFetching, apiError }) => (
   <Form>
-    <pre>{JSON.stringify(credentials, null, 2)}</pre>
-    {stateError.message ? <ErrorMessage message={stateError.message} /> : null}
-    {apiError.message ? <ErrorMessage message={apiError.message} /> : null}
+    {apiError.message ? <Error message={apiError.message} /> : null}
     <Form.Field>
       <label htmlFor="email">Email</label>
       <input
@@ -35,25 +34,9 @@ Login.propTypes = {
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  stateError: PropTypes.shape({
-    message: PropTypes.string,
-  }).isRequired,
   apiError: PropTypes.shape({
     message: PropTypes.string,
   }).isRequired,
-};
-
-const ErrorMessage = ({ message }) => (
-  <div>
-    <Message negative>
-      <Message.Header>Something went wrong</Message.Header>
-      <p>{message}</p>
-    </Message>
-  </div>
-);
-
-ErrorMessage.propTypes = {
-  message: PropTypes.string.isRequired,
 };
 
 export default Login;

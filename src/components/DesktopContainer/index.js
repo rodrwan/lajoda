@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Responsive, Visibility, Segment, Menu, Container, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import HomepageHeading from '../HomepageHeading';
+import HomepageHeading from 'components/HomepageHeading';
 
 class DesktopContainer extends Component {
   state = {};
@@ -57,7 +57,6 @@ class DesktopContainer extends Component {
             <HomepageHeading />
           </Segment>
         </Visibility>
-
         {children}
       </Responsive>
     );
