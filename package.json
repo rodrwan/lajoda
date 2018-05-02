@@ -38,5 +38,5 @@
     "eslint-plugin-react": "^7.7.0",
     "prettier": "^1.12.1"
   },
-  "proxy": "http://52bc4751.ngrok.io"
+  "proxy": "http://192.168.0.20:10000"
 }

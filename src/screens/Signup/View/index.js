@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Header, Message, Form, Button } from 'semantic-ui-react';
+import { Grid, Header, Message } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import { createUser } from 'reducers/user';
 import Navigation from 'components/Navigation';
+import LoginForm from 'components/Form/Login';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -44,35 +45,23 @@ class Signup extends React.Component {
   render() {
     return (
       <Navigation history={this.props.history}>
-        <Container>
-          <Header as="h2">signup</Header>
-          <Form>
+        <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
+          <Grid.Column style={{ maxWidth: 550 }}>
+            <Header as="h2" textAlign="center">
+              Signup
+            </Header>
             {this.state.error.message ? <ErrorMessage message={this.state.error.message} /> : null}
             {this.props.error.message ? <ErrorMessage message={this.props.error.message} /> : null}
-            <Form.Field>
-              <label htmlFor="email">Email</label>
-              <input
-                placeholder="Email"
-                name="email"
-                type="email"
-                value={this.state.email}
-                onChange={this.onChange}
-              />
-            </Form.Field>
-            <Form.Field>
-              <label htmlFor="email">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.onChange}
-              />
-            </Form.Field>
-            <Button type="submit" disabled={this.props.isFetching} onClick={this.submit}>
-              Submit
-            </Button>
-          </Form>
-        </Container>
+            <LoginForm
+              onSubmit={this.submit}
+              credentials={this.state.credentials} // porcion que quiero modificar
+              onChange={this.onChange} // quien modifica esa porcion
+              isFetching={this.props.isFetching}
+              apiError={this.props.error}
+              buttonLabel="Sign Up"
+            />
+          </Grid.Column>
+        </Grid>
       </Navigation>
     );
   }

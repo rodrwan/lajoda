@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Responsive, Visibility, Sidebar, Menu, Segment, Container, Icon } from 'semantic-ui-react';
+import {
+  Responsive,
+  Visibility,
+  Sidebar,
+  Menu,
+  Segment,
+  Container,
+  Icon,
+  Grid,
+} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class MobileNavigation extends React.Component {
@@ -33,8 +42,10 @@ class MobileNavigation extends React.Component {
               </Menu.Item>
               {this.props.isAuthenticated ? (
                 <div>
-                <Menu.Item as={Link} to="/me">Profile</Menu.Item>
-                <Menu.Item onClick={this.logout}>Logout</Menu.Item>
+                  <Menu.Item as={Link} to="/me">
+                    Profile
+                  </Menu.Item>
+                  <Menu.Item onClick={this.logout}>Logout</Menu.Item>
                 </div>
               ) : (
                 <div>
@@ -62,9 +73,13 @@ class MobileNavigation extends React.Component {
                   </Menu>
                 </Container>
               </Segment>
-              <Container text style={{ marginTop: '3em' }}>
-                {this.props.children}
-              </Container>
+              <Grid
+                textAlign="center"
+                style={{ height: '100%', marginTop: '3em' }}
+                verticalAlign="middle"
+              >
+                <Grid.Column style={{ maxWidth: 450 }}>{this.props.children}</Grid.Column>
+              </Grid>
             </Sidebar.Pusher>
           </Sidebar.Pushable>
         </Visibility>

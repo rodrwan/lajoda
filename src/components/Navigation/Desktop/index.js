@@ -44,7 +44,7 @@ class DesktopNavigation extends React.Component {
           </Container>
         </Menu>
 
-        <Container text style={{ marginTop: '7em' }}>
+        <Container text fluid style={{ marginTop: '3em' }}>
           {children}
         </Container>
       </Responsive>

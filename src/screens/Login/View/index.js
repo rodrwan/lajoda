@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Header } from 'semantic-ui-react';
+import { Grid, Header, Message } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import { login } from 'reducers/session';
@@ -48,17 +48,25 @@ class Login extends React.Component {
 
     return (
       <Navigation history={this.props.history}>
-        <Container text>
-          <Header as="h2">Login</Header>
-          {error.message ? <Error message={error.message} /> : null}
-          <LoginForm
-            onSubmit={this.submit}
-            credentials={this.state.credentials} // porcion que quiero modificar
-            onChange={this.onChange} // quien modifica esa porcion
-            isFetching={this.props.isFetching}
-            apiError={this.props.error}
-          />
-        </Container>
+        <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as="h2" textAlign="center">
+              Login
+            </Header>
+            {error.message ? <Error message={error.message} /> : null}
+            <LoginForm
+              onSubmit={this.submit}
+              credentials={this.state.credentials} // porcion que quiero modificar
+              onChange={this.onChange} // quien modifica esa porcion
+              isFetching={this.props.isFetching}
+              apiError={this.props.error}
+              buttonLabel="Login"
+            />
+            <Message>
+              New to us? <a href="/signup">Sign Up</a>
+            </Message>
+          </Grid.Column>
+        </Grid>
       </Navigation>
     );
   }
