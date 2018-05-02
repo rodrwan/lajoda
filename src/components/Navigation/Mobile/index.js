@@ -59,7 +59,7 @@ class MobileNavigation extends React.Component {
                   </Menu>
                 </Container>
               </Segment>
-              <Container text style={{ marginTop: '7em' }}>
+              <Container text style={{ marginTop: '3em' }}>
                 {this.props.children}
               </Container>
             </Sidebar.Pusher>

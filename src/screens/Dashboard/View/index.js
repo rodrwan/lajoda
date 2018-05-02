@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Card, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { fetchReports } from 'reducers/report';
 import { logout } from 'reducers/session';
 import Navigation from 'components/Navigation';
@@ -24,15 +25,29 @@ class Dashboard extends React.Component {
   handleToggle = () => this.setState({ sidebarOpened: !this.state.sidebarOpened });
 
   render() {
+    const { user, isFetching, reports } = this.props;
+
     return (
       <Navigation history={this.props.history}>
         <div>
           <h1>Dashboard</h1>
-          <pre>{JSON.stringify(this.props.user, null, 2)}</pre>
-          {this.props.isFetching ? (
+          {/* <pre>{JSON.stringify(this.props.user, null, 2)}</pre> */}
+          {isFetching ? (
             <LoaderExampleLoader />
           ) : (
-            <pre>{JSON.stringify(this.props.reports, null, 2)}</pre>
+            <Card.Group centered>
+              {reports.map(report => (
+                <Card key={report.id} href={`/reports/${report.id}`}>
+                  <Image size="small" centered src="https://i.redd.it/v2f9jbro0mly.jpg" />
+                  <Card.Content>
+                    <Card.Header>{report.title}</Card.Header>
+                    <Card.Meta>Score: {report.rating}</Card.Meta>
+                    <Card.Description>{report.description}</Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>Go to</Card.Content>
+                </Card>
+              ))}
+            </Card.Group>
           )}
         </div>
       </Navigation>
